@@ -1,0 +1,8 @@
+// No frames
+pane_frames false
+
+// Compact Frames
+default_layout "compact"
+
+// Catppuccin
+theme "catppuccin-mocha"
