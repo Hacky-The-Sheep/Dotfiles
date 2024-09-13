@@ -1,0 +1,48 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = '''
+$os $hostname$directory$git_status$rust$python$golang
+[>](yellow) 
+'''
+
+add_newline = true
+
+[username]
+show_always = true
+style_user = 'text'
+style_root = 'red'
+format = "[$user ]($style)"
+
+[os]
+style = "peach"
+disabled = false
+
+[os.symbols]
+EndeavourOS = " "
+Arch = "󰣇 "
+NixOS = "󱄅 "
+
+# Coding
+[rust]
+format = '[ ](red)'
+
+[python]
+format = '[ ](green)'
+
+[golang]
+format = '[ ](blue)'
+
+
+[directory]
+truncation_length = 3
+truncation_symbol = "… /"
+read_only = " "
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+
+[hostname]
+detect_env_vars = [ 'SSH_CONNECTION' ]
