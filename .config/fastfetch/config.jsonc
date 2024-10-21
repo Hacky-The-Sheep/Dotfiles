@@ -10,7 +10,7 @@
     //    "4": "blue",
     //    "5": "green"
     //}
-    "source": "~/.config/fastfetch/archpuccinn.png",
+    "source": "~/.config/fastfetch/our_lady.png",
     "type": "kitty",
     "height": 16,
     "width": 34,
@@ -122,10 +122,16 @@
       "format": "└──────────────────────────────────────────────────────┘",
       "outputColor": "red"
     },
+    "break",
+    {
+      "type": "custom",
+      "format": "                Our Lady - Pray for Us                  ",
+      "outputColor": "blue"
+    },
     {
       "type": "custom",
       "format": "               \u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m "
     },
-    "break",
+    "break"
   ]
 }
