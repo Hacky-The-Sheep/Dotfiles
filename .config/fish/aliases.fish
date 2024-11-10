@@ -4,6 +4,11 @@ alias python python3
 alias hx helix
 alias gitui "gitui -t mocha.ron"
 
+# General
+zj = zellij
+screens = "rm /home/hacky/Pictures/Screenshots/Screenshot* "
+siri = "screen /dev/ttyUSB0"
+
 # Arch (btw) 󰣇
 alias up "sudo pacman -Syu"
 alias down "sudo pacman -Rcns"
