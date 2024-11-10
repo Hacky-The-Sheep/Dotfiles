@@ -5,9 +5,9 @@ alias hx helix
 alias gitui "gitui -t mocha.ron"
 
 # General
-zj = zellij
-screens = "rm /home/hacky/Pictures/Screenshots/Screenshot* "
-siri = "screen /dev/ttyUSB0"
+alias zj zellij
+alias screens "rm /home/hacky/Pictures/Screenshots/Screenshot* "
+alias siri "screen /dev/ttyUSB0"
 
 # Arch (btw) 󰣇
 alias up "sudo pacman -Syu"
