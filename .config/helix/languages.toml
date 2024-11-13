@@ -12,3 +12,8 @@ roots = [".", "pyproject.toml", "pyrightconfig.json"]
 comment-token = "#" 
 language-servers = ["pyright", "ruff", "pylsp"]
 auto-format = true
+
+[[language]]
+name = "nix"
+language-servers = [ "nixd" ]
+auto-format = true
