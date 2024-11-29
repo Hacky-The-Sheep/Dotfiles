@@ -1,0 +1,12 @@
+exit
+ls
+ei
+exit
+ls
+cd Documents/m
+ls
+ei
+exit
+cd .config/
+ls
+mv -r nushell/ /home/hacky/Dotfiles/.config/
