@@ -1,20 +1,36 @@
 # Nushell Config File
 #
 # version = "0.100.0"
+$env.STARSHIP_SHELL = "nu"
 
-# For more information on defining custom themes, see
-# https://www.nushell.sh/book/coloring_and_theming.html
-# And here is the theme collection
-# https://github.com/nushell/nu_scripts/tree/main/themes
+def create_left_prompt [] {
+    starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
+}
+
+# Fish AutoCompletions
+let fish_completer = {|spans|
+    fish --command $'complete "--do-complete=($spans | str join " ")"'
+    | from tsv --flexible --noheaders --no-infer
+    | rename value description
+}
+
+# Use nushell functions to define your right and left prompt
+$env.PROMPT_COMMAND = { || create_left_prompt }
+$env.PROMPT_COMMAND_RIGHT = ""
+
+# The prompt indicators are environmental variables that represent
+# the state of the prompt
+$env.PROMPT_INDICATOR = ""
+$env.PROMPT_INDICATOR_VI_INSERT = ": "
+$env.PROMPT_INDICATOR_VI_NORMAL = "〉"
+$env.PROMPT_MULTILINE_INDICATOR = "::: "
+
 let dark_theme = {
     # color for nushell primitives
     separator: white
-    leading_trailing_space_bg: { attr: n } # no fg, no bg, attr none effectively turns this off
+    leading_trailing_space_bg: { attr: n }
     header: green_bold
     empty: blue
-    # Closures can be used to choose colors for specific values.
-    # The value (in this case, a bool) is piped into the closure.
-    # eg) {|| if $in { 'light_cyan' } else { 'light_gray' } }
     bool: light_cyan
     int: white
     filesize: cyan
@@ -145,9 +161,8 @@ let light_theme = {
 #     carapace $spans.0 nushell ...$spans | from json
 # }
 
-# The default config record. This is where much of your global configuration is setup.
 $env.config = {
-    show_banner: true # true or false to enable or disable the welcome banner at startup
+    show_banner: false
 
     ls: {
         use_ls_colors: true # use the LS_COLORS environment variable to colorize output
@@ -897,3 +912,38 @@ $env.config = {
         }
     ]
 }
+
+# Aliases
+alias ei = exit
+alias python = python3
+alias hx = helix
+alias gitui = gitui -t mocha.ron
+
+# General
+alias zj = zellij
+alias screens = rm /home/hacky/Pictures/Screenshots/Screenshot*
+alias siri = screen /dev/ttyUSB0
+
+# Arch (btw) 󰣇
+alias up = sudo pacman -Syu
+alias down = sudo pacman -Rcns
+
+# Pandoc 󰏚
+alias pd = pandoc -f markdown-implicit_figures -t latex -o
+
+# ZelliJ
+alias zj = zellij
+alias notes = zellij --layout ~/.dotfiles/layouts/notes.kdl
+alias thm = zellij --layout ~/.dotfiles/layouts/thm.kdl
+
+# Git 
+alias ga = git add
+alias gs = git status
+alias gc = git commit -m
+
+# YoutubeDL 󰗃
+alias yty = yt-dlp -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' 
+alias ytu = yt-dlp -o '~/MyVideos/%(playlist)s/%(chapter_number)s - %(chapter)s/%(title)s.%(ext)s'
+alias ydl = yt-dlp --prefer-ffmpeg --merge-output-format mkv 
+alias ymp4 = yt-dlp --prefer-ffmpeg --merge-output-format mp4 
+alias ymp3 = yt-dlp --extract-audio --audio-format mp3 

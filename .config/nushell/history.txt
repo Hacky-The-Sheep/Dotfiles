@@ -10,3 +10,80 @@ exit
 cd .config/
 ls
 mv -r nushell/ /home/hacky/Dotfiles/.config/
+fish
+git status
+cd .config/nushell/
+hx .
+helix .
+cd ..
+ls
+hx starship.toml
+helix starship.toml
+exit
+ls
+starship
+exit
+cd Dotfiles/.config/nushell/
+ls
+hx config.nu
+helix .
+cd ..
+stow .
+exit
+hx ,
+cd Dotfiles/.config/
+helix .
+cd ..
+stow .
+exit
+cd Dotfiles/.config/
+hx .
+helix .
+cd ..
+stow .
+exit
+ls
+cd Dotfiles/.config/nushell/
+helix .
+cd ..
+stow .
+exit
+cd Dotfiles/.config/nushell/
+hx .
+ls
+hx 
+cd ..
+cd fish/
+ls
+hx .
+ei
+exit
+hx aliases.fish
+cd ..
+stow .
+exit
+zellij
+exit
+cd Pictures/Screenshots/
+ls
+screens
+ls
+yazi
+rm BB_Meeting.png
+cd Dotfiles/.config/nushell/
+hx .
+cd ..
+stow .
+up
+clean
+clear
+cd Documents/Work_Stuff/
+ls
+open AutoSyncDetect.ps1
+cd
+cd Dotfiles/
+stow .
+exit
+cd Dotfiles/
+ls
+gs
