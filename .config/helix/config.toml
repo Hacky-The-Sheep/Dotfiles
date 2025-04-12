@@ -1,4 +1,4 @@
-theme = "catppuccin_mocha"
+theme = "catppuccin-mocha"
 
 [editor]
 auto-format = true
