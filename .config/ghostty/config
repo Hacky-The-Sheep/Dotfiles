@@ -1,0 +1,10 @@
+window-save-state = always
+
+# Rice
+background-opacity = 0.90
+background-blur-radius = 1
+unfocused-split-opacity = 0.70
+
+# Font
+font-family = Iosevka
+font-size = 16
