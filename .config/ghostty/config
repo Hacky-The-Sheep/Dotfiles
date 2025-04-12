@@ -8,3 +8,6 @@ unfocused-split-opacity = 0.70
 # Font
 font-family = Iosevka
 font-size = 16
+
+# The Cat
+theme = catppuccin-mocha
