@@ -24,12 +24,12 @@ set -e
 source utils.sh
 
 # Source the package list
-if [ ! -f "packages.conf" ]; then
-  echo "Error: packages.conf not found!"
+if [ ! -f "pkgs.conf" ]; then
+  echo "Error: pkgs.conf not found!"
   exit 1
 fi
 
-source packages.conf
+source pkgs.conf
 
 echo "So it begins..."
 
@@ -81,6 +81,12 @@ git config --global user.email "jon.nguyen7@protonmail.com"
 echo " "
 echo "Generating the SSH Key"
 yes "" | ssh-keygen -t ed25519 -C "jon.nguyen7@protonmail.com"
+
+# Change to fish
+chsh -s /usr/bin/fish
+
+# Enable fractional scaling for Gnome
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
 # Nix Time
 if gentent group "nix-users" &>/dev/null; then
