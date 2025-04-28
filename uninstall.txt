@@ -1,0 +1,6 @@
+baobab
+epiphany
+simple-scan
+gnome-software
+gnome-user-docs
+yelp
