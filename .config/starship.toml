@@ -12,7 +12,7 @@ add_newline = true
 show_always = true
 style_user = 'text'
 style_root = 'red'
-format = "[$user ]($style)"
+format = "[$user]($style)"
 
 [os]
 style = "peach"
@@ -32,7 +32,6 @@ format = '[ ](green)'
 
 [golang]
 format = '[ ](blue)'
-
 
 [directory]
 truncation_length = 3
