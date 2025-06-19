@@ -77,11 +77,6 @@ echo "Setting Git Defaults"
 git config --global user.name "Hacky"
 git config --global user.email "jon.nguyen7@protonmail.com"
 
-# Generate the SSH Keys
-echo " "
-echo "Generating the SSH Key"
-yes "" | ssh-keygen -t ed25519 -C "jon.nguyen7@protonmail.com"
-
 # Change to fish
 chsh -s /usr/bin/fish
 
