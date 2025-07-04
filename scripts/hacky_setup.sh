@@ -13,9 +13,36 @@ print_logo() {
 EOF
 }
 
+print_arch() {
+  cat << "EOF"
+
+  
+                    _     
+  __ _  _ __   ___ | |__  
+ / _` || '__| / __|| '_ \ 
+| (_| || |   | (__ | | | |
+ \__,_||_|    \___||_| |_|
+                          
+EOF
+}
+
+print_building() {
+  cat << "EOF"
+ _             _  _      _  _               
+| |__   _   _ (_)| |  __| |(_) _ __    __ _ 
+| '_ \ | | | || || | / _` || || '_ \  / _` |
+| |_) || |_| || || || (_| || || | | || (_| |
+|_.__/  \__,_||_||_| \__,_||_||_| |_| \__, |
+                                      |___/ 
+EOF
+}
+
 # Clear screen / show logo
 clear
 print_logo
+
+# Set sleep to see the ascii
+sleep 6
 
 # Exit on error
 set -e
@@ -31,8 +58,13 @@ fi
 
 source pkgs.conf
 
-echo "So it begins..."
 
+echo "So it begins..."
+sleep 4
+
+clear
+print_arch
+sleep 4
 # Update Arch
 echo "Updating Arch:"
 sudo pacman -Syu --noconfirm
@@ -51,7 +83,12 @@ else
   echo "yay is already installed"
 fi
 
+
+# Install the packages
 # Install packages by category
+clear
+print_building
+sleep 4
 echo "Installing rice..."
 install_packages "${ricing[@]}"
 
@@ -84,15 +121,15 @@ chsh -s /usr/bin/fish
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
 # Nix Time
-if gentent group "nix-users" &>/dev/null; then
-  echo "The Nix-Users group exists already... moving on"
-else
-  echo "Making the 'Nix-Users' group"
-  sudo groupadd nix-users
-  echo "Adding the nix pkg channel"
-  nix-channel --add https://nixos.org/channels/nixpkgs-unstable
-  nix-channel --update
-  sudo systemctl enable nix-daemon.service
-fi
+# if gentent group "nix-users" &>/dev/null; then
+#   echo "The Nix-Users group exists already... moving on"
+# else
+#   echo "Making the 'Nix-Users' group"
+#   sudo groupadd nix-users
+#   echo "Adding the nix pkg channel"
+#   nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+#   nix-channel --update
+#   sudo systemctl enable nix-daemon.service
+# fi
 
 echo "SETUP Finished! Please reboot your PC"
