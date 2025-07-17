@@ -1,18 +1,26 @@
 [global]
-monitor = 1
-frame_width = 1
-frame_color = "#b4befe"
-separator_color= frame
-highlight = "#74c7ec"
-background = "#1e1e2e"
-foreground = "#cdd6f4"
-corner_radius = 5
-progress_bar_corner_radius = 5
-corners = top-left,bottom
-progress_bar_corners = top-left,bottom-right
-offset = (15, 25)
-gap_size = 5
-format = "<b>󰁕 %a</b>\n%s\n<i>%b</i>"
+origin = "top-center"
+follow = "mouse"
+monitor = 0
+width = 300
+height = 600
+timeout = 10
+font = "Iosevka 14"
+markup = "full"
+format = "<b>%s</b>\n%b"
+alignment = "center"
+vertical_alignment = "center"
+show_indicators = "yes"
+
+enable_recursive_icon_lookup = true
+icon_position = "left"
+min_icon_size = 32
+
+corner_radius = 20
+
+mouse_left_click = "context"
+mouse_middle_click = "do_action, close_current"
+mouse_right_click = "close_all"
 
 [urgency_low]
 foreground = "#a6e3a1"
