@@ -1,83 +1,71 @@
-"$schema" = 'https://starship.rs/config-schema.json'
-palette = "catppuccin_mocha"
-
-format = '''
-$os $hostname$directory$git_status$rust$python$golang
-[>](yellow) 
-'''
-
-add_newline = true
-
-[username]
-show_always = true
-style_user = 'text'
-style_root = 'red'
-format = "[$user]($style)"
-
-[os]
-style = "peach"
-disabled = false
-
-[os.symbols]
-EndeavourOS = " "
-Arch = "󰣇 "
-NixOS = "󱄅 "
-
-# Coding
-[rust]
-format = '[ ](red)'
-
-[python]
-format = '[ ](green)'
-
-[golang]
-format = '[ ](blue)'
+format = """
+[░▒▓](#89dceb)\
+[ 󰣇 ](bg:#89dceb fg:#7f849c)\
+[](bg:#45475a fg:#89dceb)\
+$directory\
+[](fg:#45475a bg:#6c7086)\
+$git_branch\
+$git_status\
+[](fg:#6c7086 bg:#585b70)\
+$nodejs\
+$rust\
+$golang\
+$php\
+[](fg:#585b70 bg:#cba6f7)\
+$time\
+[ ](fg:#cba6f7)\
+\n$character"""
 
 [directory]
+style = "fg:#e3e5e5 bg:#45475a"
+format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "… /"
-read_only = " "
 
 [directory.substitutions]
 "Documents" = "󰈙 "
 "Downloads" = " "
-"Music" = "󰝚 "
+"Music" = " "
 "Pictures" = " "
 
-[hostname]
-detect_env_vars = [ 'SSH_CONNECTION' ]
+[git_branch]
+symbol = " "
+style = "bg:#313244"
+format = '[[ $symbol $branch ](fg:#f38ba8 bg:#6c7086)]($style)'
+
+[git_status]
+style = "bg:#313244"
+format = '[[($all_status$ahead_behind )](fg:#f38ba8 bg:#6c7086)]($style)'
 
 [nix_shell]
-disabled = true
+disabled = false
 impure_msg = '[impure shell](bold red)'
 pure_msg = '[pure shell](bold green)'
 unknown_msg = '[unknown shell](bold yellow)'
 format = 'via [☃️ $state( \($name\))](bold blue) '
 
-[palettes.catppuccin_mocha]
-rosewater = "#f5e0dc"
-flamingo = "#f2cdcd"
-pink = "#f5c2e7"
-mauve = "#cba6f7"
-red = "#f38ba8"
-maroon = "#eba0ac"
-peach = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-teal = "#94e2d5"
-sky = "#89dceb"
-sapphire = "#74c7ec"
-blue = "#89b4fa"
-lavender = "#b4befe"
-text = "#cdd6f4"
-subtext1 = "#bac2de"
-subtext0 = "#a6adc8"
-overlay2 = "#9399b2"
-overlay1 = "#7f849c"
-overlay0 = "#6c7086"
-surface2 = "#585b70"
-surface1 = "#45475a"
-surface0 = "#313244"
-base = "#1e1e2e"
-mantle = "#181825"
-crust = "#11111b"
+[nodejs]
+symbol = " "
+style = "bg:#585b70"
+format = '[[ $symbol ($version) ](fg:#a6e3a1 bg:#585b70)]($style)'
+
+[rust]
+symbol = " "
+style = "bg:#585b70"
+format = '[[ $symbol ($version) ](fg:#f38ba8 bg:#585b70)]($style)'
+
+[golang]
+symbol = " "
+style = "bg:#585b70"
+format = '[[ $symbol ($version) ](fg:#cba6f7 bg:#585b70)]($style)'
+
+[php]
+symbol = ""
+style = "bg:#585b70"
+format = '[[ $symbol ($version) ](fg:#45475a bg:#585b70)]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#cba6f7"
+format = '[[  $time ](fg:#11111b bg:#cba6f7)]($style)'
